@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: joke-operator
+  name: joke-operator
+  namespace: default
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: joke-operator
+  template:
+    metadata:
+      labels:
+        app: joke-operator
+    spec:
+      containers:
+      - image: hristoslavov/kopf-joker:v1
+        name: joke-operator

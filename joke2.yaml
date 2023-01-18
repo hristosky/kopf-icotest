@@ -1,0 +1,8 @@
+apiVersion: kopf.example/v1
+kind: Joke
+metadata:
+  name: joke2
+spec:
+  payload: "There are brave skydivers and there are old skydivers, but there are no old, brave skydivers."
+  dirty: False
+  author: Unknown

@@ -1,0 +1,8 @@
+apiVersion: kopf.example/v1
+kind: Joke
+metadata:
+  name: joke3
+spec:
+  payload: "I got my life insurance today, my wife was so happy, she got me a skydiving voucher for tomorrow."
+  dirty: False
+  author: Unknown

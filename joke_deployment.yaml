@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: joker
+  name: joker
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: joker
+  template:
+    metadata:
+      labels:
+        app: joker
+    spec:
+      containers:
+      - image: httpd
+        name: joker
+        ports:
+        - containerPort: 8181
+        volumeMounts:
+           - name: joke-cm-vol
+             mountPath: /usr/local/apache2/htdocs/
+      volumes:
+        - name: joke-cm-vol
+          configMap:
+            name: joke-cm
+            items:
+              - path: index.html
+                key: joke_list

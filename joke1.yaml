@@ -1,0 +1,8 @@
+apiVersion: kopf.example/v1
+kind: Joke
+metadata:
+  name: joke1
+spec:
+  payload: "Don't worry, if your parachute malfunctions, you have the rest of your life to fix it!!"
+  dirty: False
+  author: Unknown

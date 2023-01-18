@@ -1,0 +1,32 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: jokes.kopf.example
+spec:
+  group: kopf.example
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          required: ["spec"]
+          properties:
+            spec:
+              type: object
+              required: ["payload", "dirty", "author"]
+              properties:
+                payload:
+                  type: string
+                dirty:
+                  type: boolean
+                author:
+                  type: string
+  scope: Namespaced
+  names:
+    plural: jokes
+    singular: joke
+    kind: Joke
+    shortNames:
+    - fun

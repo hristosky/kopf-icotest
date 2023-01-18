@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: joker
+  name: joke-svc
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+  - port: 8181
+  selector:
+    app: joker
